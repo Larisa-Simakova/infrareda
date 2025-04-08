@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
             slidesPerView: 2,
             slidesPerGroup: 2,
             spaceBetween: 10,
-            loop: false,
+            loop: true,
             autoplay: {
-                delay: 10000,
+                delay: 5000,
                 disableOnInteraction: false,
             },
             pagination: {
@@ -68,9 +68,10 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerView: 1,
         slidesPerGroup: 1,
         spaceBetween: 0,
+        loop: true,
 
         autoplay: {
-            delay: 10000,
+            delay: 5000,
             disableOnInteraction: false,
         },
 
@@ -343,6 +344,4 @@ function init() {
     );
 
     myMap.geoObjects.add(myPlacemark);
-
-    // myMap.behaviors.disable('scrollZoom');
 }
