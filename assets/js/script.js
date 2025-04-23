@@ -366,4 +366,3 @@ accordionHeaders.forEach(header => {
     })
 });
 
-accordionHeaders[0].click();

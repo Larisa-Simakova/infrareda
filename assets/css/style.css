@@ -450,8 +450,8 @@ h2 {
 
 .text-main {
     font-weight: 400;
-    font-size: 2em;
-    line-height: 140%;
+    font-size: 1.8em;
+    line-height: 120%;
 }
 
 .text-main span {
@@ -459,15 +459,15 @@ h2 {
 }
 
 .text-medium {
-    font-size: 1.8em;
+    font-size: 1.7em;
     font-weight: 400;
-    line-height: 140%;
+    line-height: 120%;
 }
 
 .text-small {
-    font-size: clamp(13px, 1.6em, 16px);
+    font-size: clamp(13px, 1.5em, 15px);
     font-weight: 400;
-    line-height: 150%;
+    line-height: 120%;
     color: var(--grey-dark);
 }
 
@@ -644,6 +644,7 @@ h2 {
 
 @media (max-width: 730px) {
     .header__links {
+        padding-top: 3em;
         flex-direction: column;
         gap: 3em;
         margin: 0;
@@ -1272,9 +1273,11 @@ h2 {
     z-index: 2;
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
     height: 100%;
     width: 100%;
+    background: var(--white);
+    box-shadow: 0 4px 40px #00000015;
+    border-radius: 2.5em;
 }
 
 .objects__item img,
@@ -1292,9 +1295,6 @@ h2 {
     flex-direction: column;
     flex-grow: 1;
     gap: 3em;
-    background: var(--white);
-    box-shadow: 0 4px 40px #00000015;
-    border-radius: 2.5em;
     padding: 2.5em 3em;
     max-width: 100%;
     height: auto;
@@ -1517,6 +1517,7 @@ h2 {
 
 .company__made svg {
     width: 30em;
+    height: 8em;
 }
 
 @media (max-width: 990px) {
@@ -1670,7 +1671,7 @@ h2 {
 
 /* catalog */
 .catalog {
-    padding: 18em 0 8em 0;
+    padding: 14em 0 8em 0;
 }
 
 .catalog h2 {
@@ -1843,7 +1844,7 @@ h2 {
 
 /* product */
 .product {
-    padding: 18em 0 12em 0;
+    padding: 14em 0 12em 0;
 }
 
 .product h2 {
@@ -2000,6 +2001,10 @@ h2 {
 .tabs__panel {
     display: none;
     height: 0;
+}
+
+.tabs__panel .product__container p {
+    width: 80%;
 }
 
 .specs-container {
@@ -2272,7 +2277,7 @@ h2 {
 
 .advantage__content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 1.5em;
 }
 
@@ -2284,31 +2289,30 @@ h2 {
 }
 
 .advantage__description {
-    width: 50%;
-    padding-right: 1.5em;
-    border-right: 1px solid #ddd;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid #ddd;
 }
 
 .advantage__comparison {
-    width: 50%;
-    padding-left: 1.5em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 1em;
 }
 
 .advantage__compare {
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: .6em;
 }
 
 .advantage__compare:last-child {
-    border-top: 1px solid #ddd;
-    padding-top: 1.5em;
+    border-left: 1px solid #ddd;
+    padding-left: 1.5em;
 }
 
 .advantage__compare:first-child {
-    padding-bottom: 1.5em;
+    padding-right: .5em;
 }
 
 @media (max-width: 991.98px) {
@@ -2364,7 +2368,8 @@ h2 {
     }
 }
 
-.tabs__panel.faq.is-active {
+.tabs__panel.faq.is-active,
+.tabs__panel .product__container {
     display: flex;
     gap: 5em;
     flex-direction: row;
@@ -2507,7 +2512,7 @@ h2 {
 
 /* objects__page */
 .objects__page {
-    padding: 18em 0 8em 0;
+    padding: 14em 0 8em 0;
 }
 
 .objects__page h2 {
@@ -2538,7 +2543,6 @@ h2 {
     flex-direction: column;
     position: relative;
     z-index: 2;
-    gap: 1.5em;
     height: 100%;
 }
 
@@ -2550,7 +2554,7 @@ h2 {
     height: 25em;
 }
 
-.objects__items .objects__content,
+/* .objects__items .objects__content,
 .objects__items .blogs__content {
     display: flex;
     flex-direction: column;
@@ -2560,7 +2564,7 @@ h2 {
     box-shadow: 0 4px 40px #00000015;
     border-radius: 2.5em;
     padding: 2.5em 3em;
-}
+} */
 
 @media (max-width: 1000px) {
     .objects__items {
@@ -2585,7 +2589,7 @@ h2 {
 /* object */
 .object,
 .blog {
-    padding: 18em 0 12em 0;
+    padding: 14em 0 12em 0;
 }
 
 .object h2,
@@ -2710,8 +2714,24 @@ h2 {
 /* object end */
 
 /* contacts */
+.contacts {
+    padding: 18em 0 8em 0;
+}
+
 .contacts .company__wrap {
     padding: 6em 0 8em 0;
+}
+
+.contacts__container {
+    display: flex;
+    justify-content: space-between;
+    background: var(--white);
+    border-radius: 2.5em;
+    box-shadow: 0 4px 40px #0000002b;
+}
+
+.contacts__map {
+    width: 75%;
 }
 
 #map {
@@ -2719,33 +2739,18 @@ h2 {
     -webkit-filter: grayscale(100%);
     border-radius: 2.5em;
     overflow: hidden;
-    margin-top: 18em;
-    position: relative;
-    z-index: 4;
 }
 
 .ymaps-2-1-79-placemark-overlay {
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
 }
 
-.contacts__map {
-    position: relative;
-    z-index: 4;
-}
-
 .contacts__information {
     display: flex;
-    justify-content: space-between;
-    position: absolute;
-    z-index: 5;
-    background: var(--white);
-    border-radius: 2.5em;
-    box-shadow: 0 4px 40px #0000002b;
+    flex-direction: column;
     padding: 2.5em 2em;
-    gap: 2.3em;
+    gap: 2em;
     flex-wrap: wrap;
-    top: 20em;
-    left: 7%;
 }
 
 .contacts__info-text {
@@ -2796,18 +2801,18 @@ h2 {
 }
 
 @media (max-width: 768px) {
-    .contacts__information {
-        display: flex;
-        flex-direction: column;
+    .contacts__map {
+        width: 65%;
     }
 }
 
 @media (max-width: 425px) {
-    .contacts__information {
-        position: static;
+    .contacts__container {
+        flex-direction: column;
+    }
+
+    .contacts__map {
         width: 100%;
-        flex-direction: row;
-        margin-top: 3em;
     }
 }
 
@@ -2815,7 +2820,7 @@ h2 {
 
 /* about */
 .about {
-    padding: 18em 0 8em 0;
+    padding: 14em 0 8em 0;
 }
 
 .about h2 {
