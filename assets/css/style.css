@@ -674,6 +674,11 @@ h2 {
     color: var(--red);
 }
 
+.link-more {
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+}
+
 .header__whatsapp svg {
     width: 3.4em;
 }
@@ -1289,6 +1294,34 @@ h2 {
     width: 100%;
 }
 
+.objects__img {
+    position: relative;
+    z-index: 10;
+}
+
+.object__img img {
+    position: relative;
+    z-index: 10;
+}
+
+.objects__place {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    position: absolute;
+    z-index: 11;
+    background: var(--white);
+    padding: 1em;
+    border-radius: 2em;
+    box-shadow: 0 4px 40px #00000015;
+    bottom: 1em;
+    left: 1em;
+}
+
+.objects__place svg {
+    height: 1.5em;
+}
+
 .objects__content,
 .blogs__content {
     display: flex;
@@ -1312,15 +1345,6 @@ h2 {
 
 .objects__description .text-main {
     font-weight: 600;
-}
-
-.objects__place {
-    display: flex;
-    gap: .5em;
-}
-
-.swiper-slide .objects__place {
-    margin-top: auto;
 }
 
 .objects__button,
@@ -1373,6 +1397,7 @@ h2 {
     flex-direction: row;
     gap: 3em;
     align-items: start;
+    height: 47em;
 }
 
 .blogs__items .blogs__item {
@@ -1394,6 +1419,8 @@ h2 {
     box-shadow: 0 4px 40px #00000015;
     border-radius: 2.5em;
     padding: 2.5em;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .blogs__new {
@@ -1857,6 +1884,17 @@ h2 {
     gap: 3em;
 }
 
+.product__description {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 80%;
+}
+
+.product__description .text-main {
+    font-weight: 600;
+}
+
 .product__content {
     width: 70%;
     display: flex;
@@ -2001,10 +2039,6 @@ h2 {
 .tabs__panel {
     display: none;
     height: 0;
-}
-
-.tabs__panel .product__container p {
-    width: 80%;
 }
 
 .specs-container {
@@ -2276,6 +2310,7 @@ h2 {
 }
 
 .advantage__content {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
@@ -2289,7 +2324,10 @@ h2 {
 }
 
 .advantage__description {
-    padding-bottom: 1.5em;
+    display: flex;
+    flex-grow: 1;
+    margin-bottom: auto;
+    padding-bottom: auto;
     border-bottom: 1px solid #ddd;
 }
 
