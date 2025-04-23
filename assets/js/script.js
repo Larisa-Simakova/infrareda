@@ -313,35 +313,57 @@ if (iconMenu) {
         });
 }
 
+function formatPhoneNumber(input) {
+    let value = input.value.replace(/\D/g, '');
 
-ymaps.ready(init);
-function init() {
-    var kazanCoords = [55.78794306894016, 49.13017450000001];
+    if (value.startsWith('7') || value.startsWith('8')) {
+        value = '+7' + value.slice(1);
+    }
+    else if (!value.startsWith('+7')) {
+        value = '+7' + value;
+    }
 
-    var myMap = new ymaps.Map("map", {
-        center: kazanCoords, 
-        zoom: 17,
-        controls: ['zoomControl']
-    });
+    let formattedValue = '+7';
+    let digits = value.slice(2);
 
-    myMap.options.set('filter', {
-        applyTo: 'map',
-        type: 'grayscale',
-        value: 100
-    });
+    if (digits.length > 0) {
+        formattedValue += '( ' + digits.slice(0, 3);
+    }
+    if (digits.length > 3) {
+        formattedValue += ' )' + digits.slice(3, 6);
+    }
+    if (digits.length > 6) {
+        formattedValue += '-' + digits.slice(6, 8);
+    }
+    if (digits.length > 8) {
+        formattedValue += '-' + digits.slice(8, 10);
+    }
 
-    var myPlacemark = new ymaps.Placemark(
-        kazanCoords,
-        {
-            hintContent: 'ул. Бутлерова, 21',
-            balloonContent: 'Казань, ул. Бутлерова, 21'
-        },
-        {
-            preset: 'islands#redIcon',
-            iconColor: '#ff0000',
-            iconShadow: true
-        }
-    );
-
-    myMap.geoObjects.add(myPlacemark);
+    input.value = formattedValue;
 }
+
+document.querySelectorAll('input[type="tel"]').forEach(input => {
+    input.addEventListener('input', () => {
+        formatPhoneNumber(input);
+    })
+
+    if (!input.value.trim()) {
+        input.value = "+7";
+    }
+});
+
+
+const accordionHeaders = document.querySelectorAll('.accordion-item');
+accordionHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        currentActiveHeader = document.querySelector('.accordion-item.active');
+        if (currentActiveHeader && currentActiveHeader != header) {
+            currentActiveHeader.classList.remove('active');
+            currentActiveHeader.querySelector('.accordion-content').classList.remove('active');
+        }
+        header.classList.toggle('active');
+        header.querySelector('.accordion-content').classList.toggle('active');
+    })
+});
+
+accordionHeaders[0].click();
