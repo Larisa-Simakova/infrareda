@@ -379,6 +379,20 @@ button svg {
     max-width: 130px;
 }
 
+.objects__page .choices {
+    max-width: 400px;
+}
+
+@media (max-width: 425.98px) {
+    .objects__page .choices {
+        max-width: 100%;
+    }
+}
+
+.objects__page .choices__inner .choices__item {
+    width: fit-content !important;
+}
+
 .choices__list--dropdown {
     border: 2px solid var(--red) !important;
     border-radius: 1em !important;
@@ -396,7 +410,7 @@ button svg {
 }
 
 .choices__list--dropdown .choices__item--selectable {
-    font-size: clamp(13px, 1.6em, 16px) !important;
+    font-size: clamp(13px, 1.em, 14px) !important;
 }
 
 .choices::after {
@@ -787,6 +801,10 @@ h2 {
     z-index: 1;
 }
 
+.banner__img img:last-child {
+    display: none;
+}
+
 @media (max-width: 1020px) {
     .banner__img img {
         width: 60em;
@@ -814,6 +832,7 @@ h2 {
         position: static;
         width: 100%;
         align-self: end;
+        object-fit: cover;
     }
 
     .banner__column {
@@ -823,6 +842,16 @@ h2 {
 
     .banner__wrap {
         height: auto;
+    }
+}
+
+@media (max-width: 430px) {
+    .banner__img img:first-child {
+        display: none;
+    }
+
+    .banner__img img:last-child {
+        display: block;
     }
 }
 
@@ -1949,7 +1978,7 @@ h2 {
 
 @media (max-width: 991.98px) {
     .tabs__panel.description.is-active {
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     .product__description {
@@ -2586,7 +2615,7 @@ h2 {
 @media (max-width: 991.98px) {
     .tabs__panel.faq.is-active {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     .accordion-items {
@@ -2622,22 +2651,12 @@ h2 {
     padding: 1.2em 0;
 }
 
-.objects__buttons {
-    display: flex;
-    gap: 1em;
-    flex-wrap: wrap;
-    padding-bottom: 2em;
-}
-
-.objects__buttons button {
-    padding: .5em 1em;
-}
-
 .objects__items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2.4em;
     width: 100%;
+    margin-top: 2em;
 }
 
 .objects__items .objects__item,
@@ -2974,6 +2993,10 @@ footer {
     gap: 6em;
 }
 
+.footer__column:nth-child(2) .footer__row.footer__row__social .footer__row {
+    display: none;
+}
+
 @media (max-width: 930px) {
     .footer__column:first-child {
         width: 26em;
@@ -3016,6 +3039,14 @@ footer {
 @media (max-width: 500px) {
     .footer__column {
         flex-direction: column;
+    }
+
+    .footer__column:nth-child(2) .footer__row.footer__row__social .footer__row {
+        display: block;
+    }
+
+    .footer__column:last-child .footer__row:last-child {
+        display: none;
     }
 }
 
@@ -3083,7 +3114,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2em;
+    gap: 1em;
     flex-wrap: wrap;
 }
 
