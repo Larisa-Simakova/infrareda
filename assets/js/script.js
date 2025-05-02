@@ -327,10 +327,10 @@ function formatPhoneNumber(input) {
     let digits = value.slice(2);
 
     if (digits.length > 0) {
-        formattedValue += '( ' + digits.slice(0, 3);
+        formattedValue += ' (' + digits.slice(0, 3);
     }
     if (digits.length > 3) {
-        formattedValue += ' )' + digits.slice(3, 6);
+        formattedValue += ') ' + digits.slice(3, 6);
     }
     if (digits.length > 6) {
         formattedValue += '-' + digits.slice(6, 8);
